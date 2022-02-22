@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+}
+*{
+    font-family: monospace;
+}
+
+.calculator{
+    background-color: rgb(26, 26, 26);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(6, 100px);
+}
+
+.sum{
+    grid-row: span 2;
+}
+
+.display{
+    grid-column: span 4;
+}
+
+button{
+    font-size: 25px;
+    color: rgb(219, 219, 219);
+    margin:3px;
+    background-color: rgb(39, 39, 39);
+    border-style:outset;
+    border-color: rgb(27, 27, 27);
+    border-width: 5px;
+    text-shadow: 1px 1px 0 black;
+}
+
+.AC{
+    background-color: rgb(185, 62, 40);
+    border-color: rgb(133, 44, 28);
+}
+
+@media (max-aspect-ratio: 4/6){
+    .container{
+        grid-template-columns: repeat(4, 25vw);
+        grid-template-rows: repeat(6, 25vw);
+    }
+
+    button{
+        font-size: calc(25vw / 4)
+    }
+}
