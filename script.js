@@ -15,9 +15,17 @@ let sumFlag = false,
 
 calculator.addEventListener('click', (e)=>{
     let key = e.target.className;
+    let maxValue;
+
+    if (pointFlag==true){
+        maxValue=8;
+    }
+    else{
+        maxValue=7;
+    }
 
     if (isNaN(parseFloat(key)) == false){
-        if (typedStr.length == 7) return
+        if (typedStr.length == maxValue) return
         if (typedStr == '0'){
             typedStr = key;
         }
@@ -96,7 +104,7 @@ calculator.addEventListener('click', (e)=>{
 });
 
 function updateDisplay(n){
-    //if (n.toString().length>7
+    n = checkLength(n);
     display.innerHTML = n;
     if (n==='ERROR'){
         typedNum = 0;
@@ -104,6 +112,24 @@ function updateDisplay(n){
     else{
         typedNum = n;
     }
+}
+
+function checkLength(n){
+    let maxLength = 7;
+    if(n.toString().includes('-')){
+        maxLength = maxLength + 1;
+    }
+    if(n.toString().includes('.')){
+        maxLength = maxLength + 1;
+    }
+
+    if(n.toString().length>maxLength){
+        n = n.toString();
+        n = n.slice(0, maxLength);
+        n = parseFloat(n);
+    }
+
+    return n
 }
 
 function clearNum(){
