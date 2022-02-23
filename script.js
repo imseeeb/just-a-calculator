@@ -9,8 +9,8 @@ let typedStr='',
 let sumFlag = false,
     subtractFlag = false,
     divideFlag = false,
-    percentFlag = false,
     multiplyFlag = false,
+    percentFlag = false,
     pointFlag = false;
 
 calculator.addEventListener('click', (e)=>{
@@ -61,6 +61,7 @@ calculator.addEventListener('click', (e)=>{
     }
 
     if (key == 'sum'){
+        //if (multiplyFlag || divideFlag == true) return
         equals();
         sumFlag = true;
         storedNum = typedNum;
@@ -137,7 +138,6 @@ function clearNum(){
 }
 
 function equals(){
-    pointFlag = false;
 
     if (sumFlag == true){
         updateDisplay(addition());
@@ -154,6 +154,8 @@ function equals(){
     if (divideFlag == true){
         updateDisplay(divide());
     }
+
+    clearNum();
 }
 
 function convertToNum(){
