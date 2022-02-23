@@ -1,5 +1,15 @@
+@font-face {
+    font-family: 'dig7';
+    src: url(fonts/digital-7.ttf);
+  }
+
 body{
     margin: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(156, 134, 130);
 }
 *{
     font-family: monospace;
@@ -7,6 +17,12 @@ body{
 
 .calculator{
     background-color: rgb(26, 26, 26);
+    width: 400px;
+    border-style: outset;
+    border-color: rgb(5, 5, 5);
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .container{
@@ -21,6 +37,15 @@ body{
 
 .display{
     grid-column: span 4;
+    background-color: rgba(130, 156, 132, 0.616);
+    margin:3px;
+    border-style: inset;
+    border-color: rgb(105, 150, 151);
+    font-family: 'dig7', monospace;
+    font-size: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 button{
@@ -34,18 +59,42 @@ button{
     text-shadow: 1px 1px 0 black;
 }
 
+button:active{
+    background-color: rgb(36, 36, 36);
+    border-width: 1px;
+    margin:5px;
+    font-size: 23px;
+}
+
 .AC{
     background-color: rgb(185, 62, 40);
     border-color: rgb(133, 44, 28);
 }
 
+.AC:active{
+    background-color: rgb(175, 59, 39);
+}
+
 @media (max-aspect-ratio: 4/6){
+    .calculator{
+        border: none;
+        width: 100vw;
+        height: 100vh;
+    }
     .container{
         grid-template-columns: repeat(4, 25vw);
         grid-template-rows: repeat(6, 25vw);
     }
 
+    .display{
+        font-size: 25vw;
+    }
+
     button{
         font-size: calc(25vw / 4)
+    }
+
+    button:active{
+        font-size: calc(25vw / 4 * 0.92);
     }
 }
