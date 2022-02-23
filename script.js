@@ -35,7 +35,9 @@ calculator.addEventListener('click', (e)=>{
     }
 
     if (key == 'AC'){
-        clearNum();
+        typedStr = '';
+        typedNum = 0;
+        storedNum = 0;
         updateDisplay(0);
     }
 
@@ -94,14 +96,18 @@ calculator.addEventListener('click', (e)=>{
 });
 
 function updateDisplay(n){
+    //if (n.toString().length>7
     display.innerHTML = n;
-    if (isNaN(n) != n) return;
-    typedNum = n;
+    if (n==='ERROR'){
+        typedNum = 0;
+    }
+    else{
+        typedNum = n;
+    }
 }
 
 function clearNum(){
     typedStr='';
-    typedNum=0;
 }
 
 function equals(){
